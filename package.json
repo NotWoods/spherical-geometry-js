@@ -35,6 +35,6 @@
   "devDependencies": {
     "tape": "^4.6.0",
     "rollup": "^0.34.1",
-    "jsdoc-to-markdown": "^1.3.6"
+    "jsdoc-to-markdown": "^4.0.1"
   }
 }
