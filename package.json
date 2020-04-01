@@ -38,10 +38,10 @@
     "devDependencies": {
         "@types/jest": "^25.1.4",
         "husky": "^4.2.3",
-        "jest": "^24.9.0",
+        "jest": "^25.2.4",
         "prettier": "^1.19.1",
         "rollup": "^1.32.0",
-        "ts-jest": "^24.3.0",
+        "ts-jest": "^25.3.0",
         "typescript": "^3.8.3"
     },
     "jest": {},
