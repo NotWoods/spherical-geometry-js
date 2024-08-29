@@ -1,0 +1,11 @@
+{
+  "$schema": "https://jsr.io/schema/config-file.v1.json",
+  "name": "@notwoods/spherical-geometry-js",
+  "version": "3.0.1",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "publish": {
+    "include": ["src/**/*"]
+  }
+}

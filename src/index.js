@@ -4,6 +4,8 @@
  * @module spherical-geometry
  */
 
+/// <reference types="./index.d.ts" />
+
 export { default as computeArea } from './compute-area.js';
 export { default as computeDistanceBetween } from './compute-distance-between.js';
 export { default as computeHeading } from './compute-heading.js';
