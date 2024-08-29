@@ -1,5 +1,5 @@
 /**
- * Spherical Geometry Library v1.4.0
+ * Spherical Geometry Library
  * This code is a port of some classes from the Google Maps Javascript API
  * @module spherical-geometry
  */

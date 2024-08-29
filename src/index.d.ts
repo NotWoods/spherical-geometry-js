@@ -1,5 +1,5 @@
 /**
- * Spherical Geometry Library v2.0.0
+ * Spherical Geometry Library
  * This code is a port of some classes from the Google Maps Javascript API
  * @module spherical-geometry
  * @todo computeOffsetOrigin
@@ -8,10 +8,20 @@
 /** Earth's radius (at the Equator) of 6378137 meters. */
 export const EARTH_RADIUS = 6378137;
 
+/** Convert from radians to degrees */
 export function toDegrees(radians: number): number;
 
+/** Convert from degrees to radians */
 export function toRadians(angleDegrees: number): number;
 
+/**
+ * Plain object representing a latitude/longitude pair.
+ *
+ * Object literals are accepted in place of LatLng objects, as a convenience, in many places. These are converted to LatLng objects when the Geometry API encounters them.
+ *
+ * @see https://developers.google.com/maps/documentation/javascript/examples/map-latlng-literal
+ * @see https://developers.google.com/maps/documentation/javascript/reference/coordinates#LatLngLiteral
+ */
 export interface LatLngLiteral {
   /**
    * Latitude in degrees.
@@ -23,6 +33,20 @@ export interface LatLngLiteral {
   lng: number;
 }
 
+/**
+ * A LatLng is a point in geographical coordinates: latitude and longitude.
+ * - Latitude ranges between -90 and 90 degrees, inclusive. Values above or below this range will be clamped to the range [-90, 90]. This means that if the value specified is less than -90, it will be set to -90. And if the value is greater than 90, it will be set to 90.
+ * - Longitude ranges between -180 and 180 degrees, inclusive. Values above or below this range will be wrapped so that they fall within the range. For example, a value of -190 will be converted to 170. A value of 190 will be converted to -170. This reflects the fact that longitudes wrap around the globe.
+ *
+ * Notice that you cannot modify the coordinates of a LatLng. If you want to compute another point, you have to create a new one.
+ *
+ * Most methods that accept `LatLng` objects also accept a {@link LatLngLiteral} object, so that the following are equivalent:
+ * @example
+ * computeArea([new LatLng(-34, 151), new LatLng(-33, 150)]);
+ * computeArea([{lat: -34, lng: 151}, {lat: -33, lng: 150}]);
+ *
+ * @see https://developers.google.com/maps/documentation/javascript/reference/coordinates#LatLng
+ */
 export class LatLng implements Iterable<number> {
   /**
    * @param lat Latitude
@@ -229,6 +253,12 @@ export function interpolate(
   fraction: number
 ): LatLng;
 
+/**
+ * Object literals are accepted in place of LatLngBounds objects throughout the API.
+ * These are automatically converted to {@link LatLngBounds} objects.
+ *
+ * @see https://developers.google.com/maps/documentation/javascript/reference/coordinates#LatLngBoundsLiteral
+ */
 export interface LatLngBoundsLiteral {
   east: number;
   north: number;
@@ -236,6 +266,10 @@ export interface LatLngBoundsLiteral {
   west: number;
 }
 
+/**
+ * Represents a rectangle in geographical coordinates, including one that crosses the 180 degrees longitudinal meridian.
+ * @see https://developers.google.com/maps/documentation/javascript/reference/coordinates#LatLngBounds
+ */
 export class LatLngBounds {
   constructor(southwest?: LatLngLike, northeast?: LatLngLike);
 
@@ -261,8 +295,14 @@ export class LatLngBounds {
    */
   getCenter(): LatLng;
 
+  /**
+   * Computes and returns the north-east corner of the bounds.
+   */
   getNorthEast(): LatLng;
 
+  /**
+   * Computes and returns the south-west corner of the bounds.
+   */
   getSouthWest(): LatLng;
 
   /**
@@ -280,10 +320,19 @@ export class LatLngBounds {
    */
   toJSON(): LatLngBoundsLiteral;
 
+  /**
+   * Unsupported, only here to mirror the Google Maps API.
+   */
   toSpan(): never;
 
+  /**
+   * Convert to a string in the format "(southwest, northeast)".
+   */
   toString(): string;
 
+  /**
+   * Convert to a string in the format "lat_sw,lng_sw,lat_ne,lng_ne"
+   */
   toUrlValue(precision?: number): string;
 
   /**
