@@ -1,6 +1,6 @@
 {
   "name": "spherical-geometry-js",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "This library provides classes and functions for the computation of geometric data on the surface of the Earth. Code ported from the Google Maps Javascript API v3",
   "license": "MIT",
   "author": {
